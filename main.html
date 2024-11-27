@@ -13,41 +13,25 @@
         <header>
             <h1>Yetflix API</h1>
             <div class="search-bar">
-                <input type="text" placeholder="Search">
-                <button>🔍</button>
+                <input id="searchInput" type="text" placeholder="Search for movies or series">
+                <button id="searchButton">🔍</button>
             </div>
         </header>
 
         <main>
             <section class="movies">
-                <h2>Filme</h2>
-                <div class="grid">
-                    <img src="img/Batman.jpg" alt="Batman">
-                    <img src="img/Spider man.jpg" alt="Spiderman">
-                    <img src="img/iron man.jpg" alt="Ironman">
-                    <img src="img/endgame.jpg" alt="Avengers">
-                    <img src="img/Batman.jpg" alt="Batman">
-                    <img src="img/Spider man.jpg" alt="Spiderman">
-                    <img src="img/iron man.jpg" alt="Ironman">
-                    <img src="img/endgame.jpg" alt="Avengers">
-                </div>
+                <h2>Movies</h2>
+                <div class="grid" id="moviesGrid"></div>
             </section>
 
             <section class="series">
-                <h2>Serien</h2>
-                <div class="grid">
-                    <img src="img/the 100.jpg" alt="The 100">
-                    <img src="img/Breaking Bad.jpg" alt="Breaking Bad">
-                    <img src="img/Prison Break.jpg" alt="Prison Break">
-                    <img src="img/The Boys.jpg" alt="The Boys">
-                    <img src="img/the 100.jpg" alt="The 100">
-                    <img src="img/Breaking Bad.jpg" alt="Breaking Bad">
-                    <img src="img/Prison Break.jpg" alt="Prison Break">
-                    <img src="img/The Boys.jpg" alt="The Boys">
-                </div>
+                <h2>Series</h2>
+                <div class="grid" id="seriesGrid"></div>
             </section>
         </main>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,96 +1,156 @@
-* {
-    margin: 0;
-    padding: 50;
-    box-sizing: border-box;
-}
-
+/* Allgemeine Stile */
 body {
     font-family: Arial, sans-serif;
-    background-color: #333;
+    background-color: #121212;
     color: white;
-}
-
-.container {
-    max-width: 1750px;
-    margin: 50px auto;
-    padding: 75px;
+    margin: 0;
+    padding: 0;
 }
 
 header {
+    background-color: #f50101;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #b32727;
-    padding: 10px 20px;
-    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
-    font-size: 75px;
+    margin: 0;
+    font-size: 50px;
+    color: #ffffff;
+}
+
+header input[type="text"] {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Hauptbereich */
+main {
+    padding: 55px;
+}
+
+.gallery-section {
+    margin-bottom: 20px;
+}
+
+.gallery-section h2 {
+    border-bottom: 10px solid white;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+.gallery-row {
+    display: flex;
+    flex-wrap: wrap;
+    /* Zeilenumbruch, falls Platz nicht ausreicht */
+    gap: 20px;
+    /* Abstand zwischen den Karten */
+    justify-content: space-between;
+    /* Karten gleichmäßig verteilen */
+    margin-bottom: 50px;
+}
+
+.movie-card,
+.series-card {
+    flex: 1 1 calc(25% - 15px);
+    /* Vier Karten pro Zeile mit Abständen */
+    max-width: calc(25% - 15px);
+    /* Maximale Breite pro Karte */
+    background-color: #202020;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card img,
+.series-card img {
+    width: 100%;
+    height: auto;
+    /* Verhindert Verzerrung */
+    display: block;
+}
+
+.movie-card:hover,
+.series-card:hover {
+    transform: scale(1.05);
+    /* Leichte Vergrößerung beim Hover */
+    box-shadow: 0 8px 12px rgba(240, 4, 4, 0.7);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #202020;
+    border-top: 2px solid white;
+}
+
+footer p {
+    margin: 0;
     color: white;
 }
 
-.search-bar {
-    display: flex;
+
+
+/* Modal */
+.modal {
+    display: none;
+    /* Unsichtbar, bis es angezeigt wird */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
 }
 
-.search-bar input {
-    padding: 5px;
-    font-size: 16px;
-    border: none;
-    border-radius: 3px 0 0 3px;
-}
-
-.search-bar button {
-    padding: 15px 20px;
-    border: none;
-    background-color: white;
-    color: black;
-    cursor: pointer;
-    border-radius: 0 3px 3px 0;
-}
-
-
-main {
-    display: flex;
-    gap: 150px;
-    margin-top: 20px;
-
-}
-
-.movies,
-.series {
-    flex: 1;
-}
-
-h2 {
-    font-size: 50px;
-    margin-bottom: 10px;
+.modal-content {
+    background-color: #202020;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    width: 80%;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     position: relative;
-    /* Positionierung für das Hinzufügen einer Linie */
-    padding-bottom: 1px;
-    /* Platz zwischen Text und Linie */
 }
 
-
-.movies h2,
-.series h2 {
-    border-bottom: 5px solid white;
-    display: inline-block;
-    width: 100%;
-
+.modal-content img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin: 15px 0;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(300px, auto);
-    gap: 30px;
-    margin-bottom: 30px;
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #ff0000;
 }
 
-.grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
+.modal-content p {
+    font-size: 16px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: #ff0000;
 }

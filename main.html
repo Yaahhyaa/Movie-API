@@ -4,34 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yetflix API</title>
+    <title>YetFlix API</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>Yetflix API</h1>
-            <div class="search-bar">
-                <input id="searchInput" type="text" placeholder="Search for movies or series">
-                <button id="searchButton">🔍</button>
-            </div>
-        </header>
+    <!-- Header mit rotem Hintergrund und Suchleiste -->
+    <header class="header">
+        <h1 class="logo">Yetflix API</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button id="search-button">Search</button>
+        </div>
+    </header>
 
-        <main>
-            <section class="movies">
-                <h2>Movies</h2>
-                <div class="grid" id="moviesGrid"></div>
-            </section>
+    <!-- Hauptbereich mit Filme und Serien -->
+    <main>
+        <section class="gallery-section">
+            <h2>Filme</h2>
+            <div class="gallery-row" id="movies-row-1"></div>
+            <div class="gallery-row" id="movies-row-2"></div>
+        </section>
 
-            <section class="series">
-                <h2>Series</h2>
-                <div class="grid" id="seriesGrid"></div>
-            </section>
-        </main>
+        <section class="gallery-section">
+            <h2>Serien</h2>
+            <div class="gallery-row" id="series-row-1"></div>
+            <div class="gallery-row" id="series-row-2"></div>
+        </section>
+    </main>
+
+    <!-- Modal für Film-/Seriendetails -->
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <img id="modal-poster" src="" alt="Poster">
+            <h2 id="modal-title"></h2>
+            <p><strong>Year:</strong> <span id="modal-year"></span></p>
+            <p><strong>Genre:</strong> <span id="modal-genre"></span></p>
+            <p><strong>Plot:</strong> <span id="modal-plot"></span></p>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="movie.js"></script>
 </body>
 
 </html>

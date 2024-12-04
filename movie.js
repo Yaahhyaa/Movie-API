@@ -35,7 +35,6 @@ function displayItems(items, rowId) {
         img.src = item.Poster !== "N/A" ? item.Poster : "placeholder.jpg";
         img.alt = item.Title;
 
-
         img.onclick = () => openModal(item.imdbID);
 
         card.appendChild(img);
@@ -47,8 +46,17 @@ function displayItems(items, rowId) {
 async function searchItems() {
     const searchTerm = document.getElementById("search-input").value.trim();
 
+    const moviesSection = document.getElementById("search-results-movies");
+    const seriesSection = document.getElementById("search-results-series");
+
     if (searchTerm === "") {
-        alert("Bitte geben Sie einen Suchbegriff ein.");
+        // Wenn kein Suchbegriff eingegeben wurde, die empfohlenen Filme und Serien anzeigen
+        fetchMovies("movies-row-1", "movie");
+        fetchMovies("series-row-1", "series");
+
+        // Verstecke die Suchergebnisse und zeige die empfohlenen Filme/Serien an
+        moviesSection.style.display = "none";
+        seriesSection.style.display = "none";
         return;
     }
 
@@ -62,9 +70,6 @@ async function searchItems() {
         const seriesData = await seriesResponse.json();
 
         // Ergebnisse anzeigen
-        const moviesSection = document.getElementById("search-results-movies");
-        const seriesSection = document.getElementById("search-results-series");
-
         if (movieData.Response === "True") {
             displayItems(movieData.Search, "movies-row-1");
             moviesSection.style.display = "block"; // Sektion anzeigen
@@ -90,7 +95,6 @@ async function openModal(imdbID) {
     try {
         const response = await fetch(`${baseURL}?i=${imdbID}&apikey=${apiKey}`);
         const movie = await response.json();
-
 
         document.getElementById("modal-poster").src = movie.Poster !== "N/A" ? movie.Poster : "placeholder.jpg";
         document.getElementById("modal-title").textContent = movie.Title;
@@ -119,7 +123,7 @@ document.getElementById("search-input").addEventListener("keypress", (event) => 
     }
 });
 
-
+// Empfohlene Filme und Serien beim Laden der Seite anzeigen
 document.addEventListener("DOMContentLoaded", () => {
     fetchMovies("movies-row-2", "movie");
     fetchMovies("series-row-2", "series");

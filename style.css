@@ -1,4 +1,3 @@
-/* Allgemeine Stile */
 body {
     font-family: Arial, sans-serif;
     background-color: #121212;
@@ -47,20 +46,16 @@ main {
 .gallery-row {
     display: flex;
     flex-wrap: wrap;
-    /* Zeilenumbruch, falls Platz nicht ausreicht */
-    gap: 20px;
-    /* Abstand zwischen den Karten */
+    gap: 15px;
     justify-content: space-between;
-    /* Karten gleichmäßig verteilen */
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .movie-card,
 .series-card {
-    flex: 1 1 calc(25% - 15px);
-    /* Vier Karten pro Zeile mit Abständen */
-    max-width: calc(25% - 15px);
-    /* Maximale Breite pro Karte */
+    flex: 1 1 calc(20% - 10px);
+    max-width: calc(20% - 10px);
+    /* Maximale Breite pro Karte angepasst */
     background-color: #202020;
     border-radius: 15px;
     overflow: hidden;
@@ -73,14 +68,12 @@ main {
 .series-card img {
     width: 100%;
     height: auto;
-    /* Verhindert Verzerrung */
     display: block;
 }
 
 .movie-card:hover,
 .series-card:hover {
     transform: scale(1.05);
-    /* Leichte Vergrößerung beim Hover */
     box-shadow: 0 8px 12px rgba(240, 4, 4, 0.7);
 }
 
@@ -96,12 +89,9 @@ footer p {
     color: white;
 }
 
-
-
-/* Modal */
+/* hier ist das Modal: */
 .modal {
     display: none;
-    /* Unsichtbar, bis es angezeigt wird */
     position: fixed;
     top: 0;
     left: 0;

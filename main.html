@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <!-- Header mit rotem Hintergrund und Suchleiste -->
+
     <header class="header">
         <h1 class="logo">Yetflix API</h1>
         <div class="search-container">
@@ -18,17 +18,27 @@
         </div>
     </header>
 
-    <!-- Hauptbereich mit Filme und Serien -->
+
     <main>
-        <section class="gallery-section">
-            <h2>Filme</h2>
+
+        <section class="gallery-section" id="search-results-movies" style="display: none;">
+            <h2>Suchergebnisse - Filme</h2>
             <div class="gallery-row" id="movies-row-1"></div>
+        </section>
+
+        <section class="gallery-section" id="search-results-series" style="display: none;">
+            <h2>Suchergebnisse - Serien</h2>
+            <div class="gallery-row" id="series-row-1"></div>
+        </section>
+
+        <!-- zufällige Filme und Serien -->
+        <section class="gallery-section">
+            <h2>Empfohlene Filme</h2>
             <div class="gallery-row" id="movies-row-2"></div>
         </section>
 
         <section class="gallery-section">
-            <h2>Serien</h2>
-            <div class="gallery-row" id="series-row-1"></div>
+            <h2>Empfohlene Serien</h2>
             <div class="gallery-row" id="series-row-2"></div>
         </section>
     </main>

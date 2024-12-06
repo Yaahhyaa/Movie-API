@@ -113,8 +113,23 @@ function closeModal() {
     document.getElementById("movie-modal").style.display = "none";
 }
 
+// Funktion für den Reset-Button
+function resetRandomMoviesAndSeries() {
+    // Leert die Suchleiste und versteckt die Suchergebnisse
+    document.getElementById("search-input").value = "";
+    document.getElementById("search-results-movies").style.display = "none";
+    document.getElementById("search-results-series").style.display = "none";
+
+    // Lädt neue zufällige Filme und Serien
+    fetchMovies("movies-row-2", "movie");
+    fetchMovies("series-row-2", "series");
+}
+
 // Event-Listener für den Such-Button
 document.getElementById("search-button").addEventListener("click", searchItems);
+
+// Event-Listener für den Reset-Button
+document.getElementById("reset-button").addEventListener("click", resetRandomMoviesAndSeries);
 
 // Optional: Suche auch starten, wenn Enter gedrückt wird
 document.getElementById("search-input").addEventListener("keypress", (event) => {
